@@ -54,7 +54,7 @@ namespace Assign10Bowling
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("filterpagenum",
-                    "Team/{filterid}/{teamname}/{pagenum}",
+                    "Team/{filterid}/{teamname}/{pagenum?}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("filterid",

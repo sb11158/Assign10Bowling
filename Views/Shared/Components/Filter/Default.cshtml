@@ -3,11 +3,29 @@
 <a asp-action="Index" asp-controller="Home" asp-route-filterid="">Home</a>
 <br />
 
+
 @foreach (var x in Model)
 {
-    <a asp-action="Index" asp-controller="Home" 
-       asp-route-filterid="@x.TeamId"
-       asp-route-filter="@x.TeamName">
-    @x.TeamName</a>
+    @if (x.TeamName == ViewData["Team"].ToString())
+    {
+        
+            <a asp-action="Index" asp-controller="Home"
+           asp-route-filterid="@x.TeamId"
+           asp-route-filter="@x.TeamName"
+           ><strong>
+                @x.TeamName
+            </strong>
+            </a>
+       
+    }
+    else
+    {
+        <a asp-action="Index" asp-controller="Home"
+           asp-route-filterid="@x.TeamId"
+           asp-route-filter="@x.TeamName">
+            @x.TeamName
+        </a>
+    }
     <br />
+
 }
